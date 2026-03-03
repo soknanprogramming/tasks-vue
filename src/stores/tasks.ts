@@ -23,7 +23,11 @@ export const useTasksStore = defineStore('tasks', {
     completeTask(index: number) {
       const task = this.tasks[index]
       if (task) {
-        task.completed = true
+        if (!task.completed) {
+          task.completed = true
+        } else {
+          task.completed = !task.completed
+        }
       }
     },
     updateTask(index: number, task: Task) {

@@ -6,7 +6,7 @@ const route = useRoute()
 
 <template>
   <div>
-    <header class="flex sticky top-5 bg-white gap-2">
+    <header class="z-40 p-2 shadow-2xl border border-gray-200 flex sticky top-5 bg-white gap-2">
       <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="30" height="30" />
 
       <div class="wrapper">
