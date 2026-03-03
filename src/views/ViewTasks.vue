@@ -52,6 +52,15 @@ const handle_editTask_submit = (e: Event) => {
   show_editTask.isOpen = false;
 }
 
+const textareaRef = ref<HTMLTextAreaElement | null>(null);
+
+const autoResize = () => {
+  const el = textareaRef.value;
+  if (!el) return;
+
+  el.style.height = 'auto'; // reset
+  el.style.height = el.scrollHeight + 'px'; // set new height
+};
 
 </script>
 
@@ -66,7 +75,8 @@ const handle_editTask_submit = (e: Event) => {
         </div>
         <div>
           <label for="">Description</label>
-          <textarea class="border resize-y min-h-100" name="description" id="description"></textarea>
+          <textarea ref="textareaRef" @input="autoResize" class="border resize-y min-h-10" name="description"
+            id="description"></textarea>
         </div>
         <button class="bg-amber-300">Add Task</button>
       </form>
