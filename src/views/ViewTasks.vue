@@ -83,17 +83,20 @@ const autoResize = () => {
     </WindowFloat>
     <!-- edit Task -->
     <WindowFloat @close="show_editTask.isOpen = false" v-if="show_editTask.isOpen">
-      <form @submit="handle_editTask_submit">
+      <form class="flex flex-col" @submit="handle_editTask_submit">
         <div>
-          <label for="">Title</label>
-          <input class="border" :value="show_editTask.task!.name" type="text" id="title" name="title">
+          <label class="flex flex-col" for="">Title</label>
+          <input class="border w-full" :value="show_editTask.task!.name" type="text" id="title" name="title">
         </div>
-        <div>
+        <div class="flex flex-col my-2">
           <label for="">Description</label>
-          <textarea class="border resize-y" :value="show_editTask.task!.description" name="description"
-            id="description"></textarea>
+          <textarea ref="textareaRef" @input="autoResize" class="border resize" :value="show_editTask.task!.description"
+            name="description" id="description"></textarea>
         </div>
-        <button class="bg-amber-300">Edit Task</button>
+        <div class="flex justify-end *:w-20">
+          <button class="bg-amber-300">Edit Task</button>
+          <button @click="show_editTask.isOpen = false">Cancel</button>
+        </div>
       </form>
     </WindowFloat>
 

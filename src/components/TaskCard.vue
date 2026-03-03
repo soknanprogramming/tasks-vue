@@ -13,7 +13,7 @@ defineEmits<{
 </script>
 
 <template>
-  <div ref="container" class="border-green min-h-48 w-64 rounded bg-amber-400 m-4 p-2 relative">
+  <div ref="container" class="border-green min-h-48 w-64 rounded bg-amber-50 border border-gray-300 m-4 p-2 relative">
     <strong>{{ task.name || 'No title' }}</strong>
     <p>{{ task.description || 'No description' }}</p>
     <div class="h-14"></div>
