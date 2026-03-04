@@ -4,7 +4,10 @@ import type { Task } from '@/types/Task';
 import TaskCard from '@/components/TaskCard.vue';
 import WindowFloat from '@/components/WindowFloat.vue';
 import { useTasksStore } from '@/stores/tasks';
+import { useShowAddTaskBarStore } from '@/stores/show_add_task_bar';
+
 const tasksStore = useTasksStore();
+const showAddTaskBarStore = useShowAddTaskBarStore();
 
 interface EditTask {
   isOpen: boolean;
@@ -12,16 +15,11 @@ interface EditTask {
   task?: Task;
 }
 
-const show_addTask = ref<boolean>(false);
 const show_editTask = reactive<EditTask>({
   isOpen: false,
   index: null,
   task: undefined
 })
-
-const handle_show_addTask = () => {
-  show_addTask.value = !show_addTask.value;
-};
 
 const handle_addTask_submit = (e: Event) => {
   e.preventDefault();
@@ -30,7 +28,7 @@ const handle_addTask_submit = (e: Event) => {
   const description = formData.get('description') as string;
   if (!title || !description) return;
   tasksStore.addTask({ name: title, description });
-  handle_show_addTask();
+  showAddTaskBarStore.toggle();
 }
 
 const handle_show_editTask = (index: number) => {
@@ -67,18 +65,22 @@ const autoResize = () => {
 <template>
   <div>
     <!-- add Task -->
-    <WindowFloat @close="show_addTask = false" v-if="show_addTask">
-      <form @submit="handle_addTask_submit">
-        <div>
+    <WindowFloat @close="showAddTaskBarStore.toggle" v-if="showAddTaskBarStore.show">
+      <form class="flex flex-col" @submit="handle_addTask_submit">
+        <div class="flex flex-col">
           <label for="">Title</label>
-          <input class="border" type="text" id="title" name="title">
+          <input class="border-gray-300 hover:border-gray-400 font-bold text-lg p-2 rounded-lg border w-full"
+            type="text" id="title" name="title">
         </div>
-        <div>
+        <div class="flex flex-col">
           <label for="">Description</label>
-          <textarea ref="textareaRef" @input="autoResize" class="border resize-y min-h-10" name="description"
-            id="description"></textarea>
+          <textarea ref="textareaRef" @input="autoResize"
+            class="border no-scroll border-gray-300 text-sm focus:bg-amber-100 hover:border-gray-400 p-2 rounded-lg resize-none overflow-y-auto max-h-60"
+            name="description" id="description"></textarea>
         </div>
-        <button class="bg-amber-300">Add Task</button>
+        <button class="bg-amber-400 hover:bg-amber-500 hover:text-white my-2 py-2 rounded-sm">Add Task</button>
+        <button class="bg-blue-400 hover:bg-blue-300 hover:text-black py-2 rounded text-white"
+          @click="showAddTaskBarStore.toggle">Cancel</button>
       </form>
     </WindowFloat>
     <!-- edit Task -->
@@ -86,12 +88,14 @@ const autoResize = () => {
       <form class="flex flex-col" @submit="handle_editTask_submit">
         <div>
           <label class="flex flex-col" for="">Title</label>
-          <input class="border w-full" :value="show_editTask.task!.name" type="text" id="title" name="title">
+          <input class="border-gray-300 hover:border-gray-400 font-bold text-lg p-2 rounded-lg border w-full"
+            :value="show_editTask.task!.name" type="text" id="title" name="title">
         </div>
         <div class="flex flex-col my-2">
           <label for="">Description</label>
-          <textarea ref="textareaRef" @input="autoResize" class="border resize" :value="show_editTask.task!.description"
-            name="description" id="description"></textarea>
+          <textarea ref="textareaRef" @input="autoResize"
+            class="border no-scroll border-gray-300 text-sm focus:bg-amber-100 hover:border-gray-400 p-2 rounded-lg resize-none overflow-y-auto max-h-60"
+            :value="show_editTask.task!.description" name="description" id="description"></textarea>
         </div>
         <div class="flex justify-end *:w-20">
           <button class="bg-amber-300">Edit Task</button>
@@ -99,12 +103,17 @@ const autoResize = () => {
         </div>
       </form>
     </WindowFloat>
-
-    <div>
-      <button @click="handle_show_addTask">Add Task</button>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+      <TaskCard v-for="(task, index) in tasksStore.tasks" :key="index" :index="index" :task="task"
+        @complete="tasksStore.completeTask(index)" @show_edit_window="handle_show_editTask(index)"
+        @delete="tasksStore.removeTask(index)" />
     </div>
-    <TaskCard v-for="(task, index) in tasksStore.tasks" :key="index" :index="index" :task="task"
-      @complete="tasksStore.completeTask(index)" @show_edit_window="handle_show_editTask(index)"
-      @delete="tasksStore.removeTask(index)" />
   </div>
 </template>
+
+
+<style>
+.no-scroll::-webkit-scrollbar {
+  display: none;
+}
+</style>
