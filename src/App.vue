@@ -18,18 +18,21 @@ const showAddTaskBarStore = useShowAddTaskBarStore();
 
         <div class="wrapper">
           <nav class="flex gap-2">
-            <RouterLink :class="(route.path === '/' ? 'bg-amber-300' : '') + ' p-2 rounded-sm'" to="/">Home</RouterLink>
-            <RouterLink :class="(route.path === '/about' ? 'bg-amber-300' : '') + ' p-2 rounded-sm'" to="/about">
+            <RouterLink :class="(route.path === '/' ? 'bg-amber-300' : 'hover:bg-blue-200') + ' p-2 rounded-sm'" to="/">
+              Home</RouterLink>
+            <RouterLink :class="(route.path === '/about' ? 'bg-amber-300' : 'hover:bg-blue-200') + ' p-2 rounded-sm'"
+              to="/about">
               About
             </RouterLink>
-            <RouterLink :class="(route.path === '/view-tasks' ? 'bg-amber-300' : '') + ' p-2 rounded-sm'"
+            <RouterLink
+              :class="(route.path === '/view-tasks' ? 'bg-amber-300' : 'hover:bg-blue-200') + ' p-2 rounded-sm'"
               to="/view-tasks">
               View Tasks
             </RouterLink>
           </nav>
         </div>
         <button v-if="route.path === '/view-tasks'" @click="showAddTaskBarStore.toggle"
-          class="bg-amber-200 p-2 rounded-sm">
+          class="bg-amber-200 p-2 rounded-sm hover:cursor-pointer">
           Add Tasks
         </button>
       </header>

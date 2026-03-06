@@ -1,5 +1,6 @@
 {
   "name": "task",
+  "homepage": "https://soknanprogramming.github.io/tasks-vue/",
   "version": "0.0.0",
   "private": true,
   "type": "module",

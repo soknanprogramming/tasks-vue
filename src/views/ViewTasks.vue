@@ -78,8 +78,8 @@ const autoResize = () => {
             class="border no-scroll border-gray-300 text-sm focus:bg-amber-100 hover:border-gray-400 p-2 rounded-lg resize-none overflow-y-auto max-h-60"
             name="description" id="description"></textarea>
         </div>
-        <button class="bg-amber-400 hover:bg-amber-500 hover:text-white my-2 py-2 rounded-sm">Add Task</button>
-        <button class="bg-blue-400 hover:bg-blue-300 hover:text-black py-2 rounded text-white"
+        <button class="bg-amber-400 hover:bg-amber-500 hover:cursor-pointer my-2 py-2 rounded-sm">Add Task</button>
+        <button class="hover:bg-blue-500 text-black py-2 rounded hover:cursor-pointer hover:text-white"
           @click="showAddTaskBarStore.toggle">Cancel</button>
       </form>
     </WindowFloat>
@@ -97,9 +97,10 @@ const autoResize = () => {
             class="border no-scroll border-gray-300 text-sm focus:bg-amber-100 hover:border-gray-400 p-2 rounded-lg resize-none overflow-y-auto max-h-60"
             :value="show_editTask.task!.description" name="description" id="description"></textarea>
         </div>
-        <div class="flex justify-end *:w-20">
-          <button class="bg-amber-300">Edit Task</button>
-          <button @click="show_editTask.isOpen = false">Cancel</button>
+        <div class="flex mt-4 justify-end *:w-20">
+          <button class="bg-amber-400 hover:bg-amber-300 hover:cursor-pointer mx-1 p-1 rounded-md">Edit Task</button>
+          <button class="p-1 mx-1 rounded-md hover:bg-red-400 hover:text-white hover:cursor-pointer"
+            @click="show_editTask.isOpen = false">Cancel</button>
         </div>
       </form>
     </WindowFloat>
