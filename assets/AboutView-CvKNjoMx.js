@@ -1,0 +1,1 @@
+import{_ as t,o as s,c as o,a}from"./index-eja4aKU6.js";const n={},c={class:"text-white text-center text-9xl"};function r(i,e){return s(),o("div",c,[...e[0]||(e[0]=[a("h1",null,"This is an about page",-1)])])}const l=t(n,[["render",r]]);export{l as default};
