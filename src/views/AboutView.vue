@@ -18,6 +18,7 @@ onMounted(() => {
     <RouterLink to="/">Home</RouterLink>
     <RouterLink to="/view-tasks">View Tasks</RouterLink>
     <RouterLink to="/play-with-image">Play With Image</RouterLink>
+    <RouterLink to="/drag-and-drop-image">Drag And Drop Image</RouterLink>
   </div>
 
 </template>

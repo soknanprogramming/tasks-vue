@@ -24,13 +24,13 @@ function handle_color_change(e: Event) {
     <div class="bg-yellow-500 w-80 p-2 rounded-lg my-2 border-2 border-transparent transition hover:border-blue-600">
       <div class="flex items-center gap-2">
         <input type="checkbox" :checked="showBackgroundImageStore.show" @change="showBackgroundImageStore.toggle"
-          name="" id="show_background_image">
-        <label for="show_background_image">Show Background Image</label>
+          name="" id="show_background_image" class="hover:cursor-pointer">
+        <label class="hover:cursor-pointer" for="show_background_image">Show Background Image</label>
       </div>
       <div class="flex items-center gap-2">
         <input type="color" @change="handle_color_change" :value="showBackgroundImageStore.background_color" name=""
-          id="">
-        <label for="">Background Color</label>
+          id="background_color" class="hover:cursor-pointer">
+        <label class="hover:cursor-pointer" for="background_color">Background Color</label>
       </div>
     </div>
     <div class="bg-yellow-500 w-80 p-2 rounded-lg my-2 border-2 border-transparent transition hover:border-blue-600">

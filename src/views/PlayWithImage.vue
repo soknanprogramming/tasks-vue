@@ -54,7 +54,7 @@ const removeImage = () => {
     <div class="bg-yellow-500 w-80 p-2 rounded-lg my-2 border-2 border-transparent transition hover:border-blue-600">
       <h1 class="text-lg font-bold mb-2">Upload Image</h1>
       <input
-        class="border border-gray-400 bg-gray-300 hover:border-gray-500 hover:bg-gray-200 my-1 p-1 rounded-lg hover:cursor-pointer"
+        class="border border-gray-400 bg-gray-300 hover:border-gray-500 hover:bg-gray-200 my-1 p-1 rounded-lg hover:cursor-pointer w-fit"
         type="file" @change="handleImage">
       <button
         class="border border-gray-400 bg-gray-300 hover:border-gray-500 hover:bg-gray-200 my-1 p-1 rounded-lg hover:cursor-pointer"
