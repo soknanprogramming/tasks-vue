@@ -1,3 +1,9 @@
+# About my code
+
+This is just for learn purpose.
+
+You can visit link: <https://soknanprogramming.github.io/tasks-vue/>
+
 # task
 
 This template should help get you started developing with Vue 3 in Vite.

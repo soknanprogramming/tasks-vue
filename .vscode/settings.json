@@ -3,9 +3,9 @@
   "explorer.fileNesting.patterns": {
     "tsconfig.json": "tsconfig.*.json, env.d.ts, typed-router.d.ts",
     "vite.config.*": "jsconfig*, vitest.config.*, cypress.config.*, playwright.config.*",
-    "package.json": "package-lock.json, pnpm*, .yarnrc*, yarn*, .eslint*, eslint*, .oxlint*, oxlint*, .oxfmt*, .prettier*, prettier*, .editorconfig",
-    "vite.config.ts": ".env, .env.example",
-    "bun.lock": "README.md, index.html, .git*"
+    "package.json": "package-lock.json, pnpm*, .yarnrc*, yarn*, .eslint*, eslint*, .oxlint*, oxlint*, .oxfmt*, .prettier*, prettier*, .editorconfig, bun.lock"
+    // "vite.config.ts": ".env, .env.example",
+    // "bun.lock": "README.md, index.html, .git*"
   },
   "editor.codeActionsOnSave": {
     "source.fixAll": "explicit"
