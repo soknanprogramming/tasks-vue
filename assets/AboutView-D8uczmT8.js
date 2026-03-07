@@ -1,1 +1,0 @@
-import{d as t,o,c as a,a as n,b as s}from"./index-C0aINIOf.js";const r={class:"text-white text-center text-9xl"},l=t({__name:"AboutView",setup(c){return o(()=>{document.title="About Page"}),(i,e)=>(s(),a("div",r,[...e[0]||(e[0]=[n("h1",null,"This is an about page",-1)])]))}});export{l as default};
