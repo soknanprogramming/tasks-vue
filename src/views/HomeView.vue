@@ -18,9 +18,10 @@ function handle_color_change(e: Event) {
 
 <template>
   <main class="text-amber-50">
-    <div class="bg-yellow-500 w-80 p-2 rounded-lg my-2">
-      This is Home Page</div>
-    <div class="bg-yellow-500 w-80 p-2 rounded-lg my-2">
+    <div class="bg-yellow-500 w-80 p-2 rounded-lg my-2 border-2 border-transparent transition hover:border-blue-600">
+      This is Home Page
+    </div>
+    <div class="bg-yellow-500 w-80 p-2 rounded-lg my-2 border-2 border-transparent transition hover:border-blue-600">
       <div class="flex items-center gap-2">
         <input type="checkbox" :checked="showBackgroundImageStore.show" @change="showBackgroundImageStore.toggle"
           name="" id="show_background_image">
@@ -32,7 +33,7 @@ function handle_color_change(e: Event) {
         <label for="">Background Color</label>
       </div>
     </div>
-    <div class="bg-yellow-500 w-80 p-2 rounded-lg my-2">
+    <div class="bg-yellow-500 w-80 p-2 rounded-lg my-2 border-2 border-transparent transition hover:border-blue-600">
       <h1>Counter Example</h1>
       <p>Number is: {{ counterStore.count }}</p>
       <p>Double Number is: {{ counterStore.doubleCount }}</p>

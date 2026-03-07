@@ -1,6 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '@/views/HomeView.vue'
 import ViewTasks from '@/views/ViewTasks.vue'
+import AboutView from '@/views/AboutView.vue'
+import PlayWithImage from '@/views/PlayWithImage.vue'
 
 const router = createRouter({
   history: createWebHistory('/tasks-vue/'),
@@ -16,12 +18,17 @@ const router = createRouter({
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import('../views/AboutView.vue'),
+      component: AboutView,
     },
     {
       path: '/view-tasks',
       name: 'view-tasks',
       component: ViewTasks,
+    },
+    {
+      path: '/play-with-image',
+      name: 'play-with-image',
+      component: PlayWithImage,
     },
   ],
 })

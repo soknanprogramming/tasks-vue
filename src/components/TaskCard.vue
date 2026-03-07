@@ -14,7 +14,7 @@ defineEmits<{
 
 <template>
   <div ref="container"
-    class="break-all border-green min-h-48 w-64 rounded bg-amber-50 border border-gray-300 m-4 p-2 relative">
+    class="break-all border-green min-h-48 w-64 rounded bg-amber-50 border border-gray-300 m-4 p-2 relative hover:shadow-2xl hover:shadow-gray-400">
     <strong class="text-xl text-red-700">{{ task.name || 'No title' }}</strong>
     <p class="">{{ task.description || 'No description' }}</p>
     <div class="h-14"></div>
