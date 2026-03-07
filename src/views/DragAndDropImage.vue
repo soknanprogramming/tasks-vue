@@ -30,6 +30,10 @@ const triggerFileInput = () => {
 const handleChange = (event: Event) => {
   const file = (event.target as HTMLInputElement).files?.[0];
   if (!file) return;
+  if (!file.type.startsWith('image/')) {
+    alert('Please upload an image only.');
+    return;
+  }
 
   handleFile(file);
 }
@@ -38,6 +42,10 @@ const handleDrop = (event: DragEvent) => {
   event.preventDefault();
   const file = event.dataTransfer?.files?.[0];
   if (!file) return;
+  if (!file.type.startsWith('image/')) {
+    alert('Please upload an image only.');
+    return;
+  }
   handleFile(file)
 }
 

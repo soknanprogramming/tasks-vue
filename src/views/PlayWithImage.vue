@@ -26,6 +26,10 @@ const handleImage = (event: Event) => {
   const target = event.target as HTMLInputElement;
   const file = target.files?.[0];
   if (!file) return;
+  if (!file.type.startsWith('image/')) {
+    alert('Please upload an image only.');
+    return;
+  }
 
   const reader = new FileReader();
   reader.onload = () => {
