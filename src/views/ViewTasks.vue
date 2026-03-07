@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, reactive } from 'vue';
+import { ref, reactive, onMounted } from 'vue';
 import type { Task } from '@/types/Task';
 import TaskCard from '@/components/TaskCard.vue';
 import WindowFloat from '@/components/WindowFloat.vue';
@@ -8,6 +8,10 @@ import { useShowAddTaskBarStore } from '@/stores/show_add_task_bar';
 
 const tasksStore = useTasksStore();
 const showAddTaskBarStore = useShowAddTaskBarStore();
+
+onMounted(() => {
+  document.title = 'View Tasks';
+})
 
 interface EditTask {
   isOpen: boolean;
