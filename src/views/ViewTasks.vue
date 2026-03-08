@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, reactive, onMounted } from 'vue';
-import type { Task } from '@/types/Task';
+import type { EditTask } from '@/types/Task';
 import TaskCard from '@/components/TaskCard.vue';
 import WindowFloat from '@/components/WindowFloat.vue';
 import { useTasksStore } from '@/stores/tasks';
@@ -13,11 +13,6 @@ onMounted(() => {
   document.title = 'View Tasks';
 })
 
-interface EditTask {
-  isOpen: boolean;
-  index: number | null;
-  task?: Task;
-}
 
 const show_editTask = reactive<EditTask>({
   isOpen: false,

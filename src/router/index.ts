@@ -4,6 +4,7 @@ import ViewTasks from '@/views/ViewTasks.vue'
 import AboutView from '@/views/AboutView.vue'
 import PlayWithImage from '@/views/PlayWithImage.vue'
 import DragAndDropImage from '@/views/DragAndDropImage.vue'
+import TaskDetail from '@/views/TaskDetail.vue'
 
 const router = createRouter({
   history: createWebHistory('/tasks-vue/'),
@@ -35,6 +36,11 @@ const router = createRouter({
       path: '/drag-and-drop-image',
       name: 'drag-and-drop-image',
       component: DragAndDropImage,
+    },
+    {
+      path: '/view-tasks/:id',
+      name: 'task-detail',
+      component: TaskDetail,
     },
   ],
 })

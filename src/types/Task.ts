@@ -3,3 +3,8 @@ export interface Task {
   description: string
   completed?: boolean
 }
+export interface EditTask {
+  isOpen: boolean
+  index: number | null
+  task?: Task
+}
